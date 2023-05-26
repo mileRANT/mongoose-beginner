@@ -13,7 +13,11 @@ mongoose.connect("mongodb://127.0.0.1:27017/fruitsDB");
 
 const fruitSchema = new mongoose.Schema({
     name: String,
-    rating: Number,
+    rating: {
+        type: Number,
+        min: [1, 'Too Low'],
+        max: [10, 'Too High']
+    },
     review: String
 });
 
@@ -58,6 +62,8 @@ const tomato = new Fruit({
     rating: 1,
     review: "Not sure if even a fruit"
 });
+
+
 
 // Fruit.insertMany([kiwi, banana, tomato]);
 
