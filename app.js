@@ -74,6 +74,18 @@ const person3 = new Person({
 });
 person3.save();
 
+const mango = new Fruit({
+    name: "Mango",
+    score: 3,
+    review: "I'm allergic"
+});
+
+
+mango.save();
+
+Person.updateOne({name: "John"}, {favouriteFruit: mango});
+
+
 // person.save();
 
 //how to delete
